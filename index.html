@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Kurt Magay Portfolio</title>
+<meta name="description" content="Kurt Zeke Magay, website developer in Manila. Fast, custom websites for brands in the US, UK and Australia.">
+<meta name="theme-color" content="#000033">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;800&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="warp" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence id="warpNoise" type="fractalNoise" baseFrequency="0.012 0.03" numOctaves="2" seed="4" result="n"/>
+    <feDisplacementMap id="warpMap" in="SourceGraphic" in2="n" scale="0" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+  <filter id="titleWarp" x="-5%" y="-20%" width="110%" height="140%">
+    <feTurbulence id="titleNoise" type="turbulence" baseFrequency="0.004 0.06" numOctaves="1" seed="9" result="n"/>
+    <feDisplacementMap id="titleMap" in="SourceGraphic" in2="n" scale="0" xChannelSelector="R" yChannelSelector="G"/>
+  </filter>
+</svg>
+
+<div class="loader" id="loader" aria-hidden="true">
+  <span class="loader__tag mono">KURT ZEKE MAGAY / WEB DEVELOPER</span>
+  <div class="loader__count" id="loaderCount">0</div>
+  <div class="loader__bar" id="loaderBar"></div>
+</div>
+
+<canvas id="field" aria-hidden="true"></canvas>
+<canvas id="dust" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor" id="cursor" aria-hidden="true"><span class="cursor__label">Visit</span></div>
+<div class="cursor__dot" id="cursorDot" aria-hidden="true"></div>
+
+
+<main id="top">
+  <section class="hero wrap" aria-labelledby="heroTitle">
+    <div class="hero__main">
+      <div class="hero__text">
+        <div class="hero__meta">
+          <span class="eyebrow">Website Developer <span class="sep">·</span> <span class="loc">Manila, PH</span></span>
+        </div>
+        <h1 class="hero__title" id="heroTitle">
+          <span class="line"><span data-split>Websites</span></span>
+          <span class="line"><span class="outline" data-split>built to</span></span>
+          <span class="line"><span class="grad" data-split>feel alive</span></span>
+        </h1>
+      </div>
+      <figure class="hero__photo" id="heroPhoto">
+        <img id="photoImg" src="assets/kurt-magay.webp" width="900" height="1174" alt="Portrait of Kurt Zeke Magay, arms crossed, wearing glasses and a black hoodie">
+        <canvas id="photoGL" aria-hidden="true" hidden></canvas>
+        <span class="hero__badge glass"><span class="pulse" aria-hidden="true"></span>Kurt Zeke Magay</span>
+      </figure>
+      <span class="hero__avatar-dot" aria-hidden="true"></span>
+    </div>
+    <div class="hero__foot">
+      <p class="hero__lede">I'm <strong>Kurt Zeke Magay</strong>. For 7+ years I've built websites for brands like <strong>Boston Dynamics</strong> and <strong>Chronosphere</strong>, with clients across the US, UK and Australia.</p>
+      <div class="hero__ctas">
+        <a class="btn btn--solid magnetic" href="#work">See my work
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn--glass magnetic" href="#contact">Start a project</a>
+      </div>
+      <div class="scroll-cue mono" aria-hidden="true"><span class="scroll-cue__line"></span>Scroll</div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-label="What I build">
+    <div class="marquee__track" id="marquee">
+      <div class="marquee__item">Custom Websites</div>
+      <div class="marquee__item">Redesigns</div>
+      <div class="marquee__item">Online Booking</div>
+      <div class="marquee__item">Property Listings</div>
+      <div class="marquee__item">Fast Loading</div>
+      <div class="marquee__item">Mobile First</div>
+      <div class="marquee__item">System Integrations</div>
+      <div class="marquee__item">Ongoing Support</div>
+    </div>
+  </div>
+
+  <section class="sec wrap" id="about" aria-labelledby="aboutTitle">
+    <p class="eyebrow" id="aboutTitle" style="margin:0 0 32px">About</p>
+    <p class="manifesto" id="manifesto">People judge a business by its website in seconds. I build sites that <span class="hl">look sharp</span>, <span class="hl">load fast</span> and turn visitors into enquiries, and I take care of everything behind the scenes.</p>
+    <div class="about-grid">
+      <div class="bio glass">
+        <span class="eyebrow">Full stack web developer</span>
+        <div class="bio__cols">
+          <p>I've built websites for <strong>enterprise, agency and B2B technology clients</strong> in the US, UK, Australia and the Philippines. I started out coding every site from scratch, which taught me how to make a design look exactly right on every screen.</p>
+          <p>You don't need to know how websites work. Tell me what your business needs, and I'll handle the design build, the technical setup and the connections to the tools you already use.</p>
+        </div>
+        <div class="bio__meta"><span class="tag">Manila, Philippines</span><span class="tag">English · Filipino</span><span class="tag">Remote worldwide</span></div>
+      </div>
+      <div class="facts glass">
+        <div class="fact"><b data-count="7">7+</b><span>years building websites</span></div>
+        <div class="fact"><b data-count="12">12+</b><span>brand websites delivered</span></div>
+        <div class="fact"><b data-count="4">4</b><span>countries: US, UK, AU, PH</span></div>
+        <div class="fact"><b data-count="4">4</b><span>agencies and enterprise teams</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec wrap" id="work" aria-labelledby="workTitle" style="padding-top:0">
+    <div class="sec__head">
+      <span class="eyebrow">Selected work</span>
+      <h2 class="sec__title" id="workTitle">Websites for brands that <em>can't look ordinary</em>.</h2>
+    </div>
+    <ul class="work" id="workList">
+      <li class="work__row" data-hue="#000033,#0047AB" data-label="Robotics · US">
+        <a class="work__link" href="https://bostondynamics.com" target="_blank" rel="noopener">
+          <span class="work__name">Boston Dynamics</span>
+          <span class="work__kind">Robotics company marketing site</span>
+          <span class="work__tags"><span class="tag">Custom sections</span><span class="tag">Design to code</span></span>
+          <span class="work__year mono">US <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
+        </a>
+      </li>
+      <li class="work__row" data-hue="#001A66,#0066CC" data-label="Cloud software · US">
+        <a class="work__link" href="https://chronosphere.io" target="_blank" rel="noopener">
+          <span class="work__name">Chronosphere</span>
+          <span class="work__kind">Cloud software company website</span>
+          <span class="work__tags"><span class="tag">B2B marketing</span><span class="tag">Custom features</span></span>
+          <span class="work__year mono">US <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
+        </a>
+      </li>
+      <li class="work__row" data-hue="#0047AB,#0099FF" data-label="Smart water · US">
+        <a class="work__link" href="https://bevi.co" target="_blank" rel="noopener">
+          <span class="work__name">Bevi</span>
+          <span class="work__kind">Smart water machine brand site</span>
+          <span class="work__tags"><span class="tag">Product pages</span><span class="tag">Lead forms</span></span>
+          <span class="work__year mono">US <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
+        </a>
+      </li>
+      <li class="work__row" data-hue="#000033,#0066CC" data-label="Software · US">
+        <a class="work__link" href="https://openasset.com" target="_blank" rel="noopener">
+          <span class="work__name">OpenAsset</span>
+          <span class="work__kind">Software for architecture and engineering firms</span>
+          <span class="work__tags"><span class="tag">B2B marketing</span><span class="tag">Custom sections</span></span>
+          <span class="work__year mono">US <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
+        </a>
+      </li>
+      <li class="work__row" data-hue="#001A66,#0047AB" data-label="Holiday rentals · UK">
+        <a class="work__link" href="#contact">
+          <span class="work__name">Quay Holidays</span>
+          <span class="work__kind">Holiday rental listings synced from their booking system</span>
+          <span class="work__tags"><span class="tag">Live listings</span><span class="tag">Booking sync</span></span>
+          <span class="work__year mono">UK</span>
+        </a>
+      </li>
+      <li class="work__row" data-hue="#0066CC,#000033" data-label="Directory · AU">
+        <a class="work__link" href="#contact">
+          <span class="work__name">Yellow Pages AU</span>
+          <span class="work__kind">New features for a national business directory</span>
+          <span class="work__tags"><span class="tag">Enterprise</span><span class="tag">High traffic</span></span>
+          <span class="work__year mono">AU</span>
+        </a>
+      </li>
+    </ul>
+    <div class="also"><span class="mono">Also worked on</span><span class="tag">1up</span><span class="tag">EncompaaS</span><span class="tag">HySafe</span><span class="tag">Utility Warehouse</span><span class="tag">Stesso Clinic</span><span class="tag">SMHCC</span></div>
+  </section>
+
+  <section class="sec wrap" id="services" aria-labelledby="svcTitle" style="padding-top:0">
+    <div class="sec__head">
+      <span class="eyebrow">Services</span>
+      <h2 class="sec__title" id="svcTitle">You run the business. <em>I handle the website.</em></h2>
+    </div>
+    <div class="svc">
+      <article class="card glass">
+        <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+        <h3>New websites &amp; redesigns</h3>
+        <p>Bring a design or just your brand. You get a custom site that looks right on every screen and that your team can update.</p>
+        <ul><li class="tag">Custom design</li><li class="tag">Mobile first</li><li class="tag">Easy to edit</li></ul>
+      </article>
+      <article class="card glass">
+        <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 17H7A5 5 0 0 1 7 7h2M15 7h2a5 5 0 0 1 0 10h-2M8 12h8"/></svg></div>
+        <h3>Bookings &amp; integrations</h3>
+        <p>Listings, booking calendars, forms and CRMs. I connect your website to the systems you already run so data stays in sync.</p>
+        <ul><li class="tag">Bookings</li><li class="tag">Listings</li><li class="tag">CRM</li></ul>
+      </article>
+      <article class="card glass">
+        <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 14l4-4"/><path d="M3.3 19a10 10 0 1 1 17.4 0"/></svg></div>
+        <h3>Speed &amp; search</h3>
+        <p>Slow pages lose customers. I find what's slowing your site down, fix it, and set it up so Google can read it properly.</p>
+        <ul><li class="tag">Faster pages</li><li class="tag">SEO basics</li><li class="tag">Analytics</li></ul>
+      </article>
+      <article class="card glass">
+        <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Care &amp; support</h3>
+        <p>Updates, backups, security and quick fixes after launch, so your site keeps working while you focus on customers.</p>
+        <ul><li class="tag">Updates</li><li class="tag">Backups</li><li class="tag">Fixes</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec wrap" aria-labelledby="perfTitle" style="padding-top:0">
+    <div class="perf">
+      <div class="perf__copy">
+        <span class="eyebrow">Performance</span>
+        <h2 class="sec__title" id="perfTitle" style="margin-top:20px">Fast, findable, <em>on every screen</em>.</h2>
+        <p>Every site is tested on real phones and run through Google's PageSpeed checks before launch. These are the scores I aim for.</p>
+      </div>
+      <div class="perf__panel glass">
+        <div class="gauges" id="gauges">
+          <div class="gauge"><svg viewBox="0 0 120 120" role="img" aria-label="Performance 98"><circle class="gauge__track" cx="60" cy="60" r="52"/><circle class="gauge__val" cx="60" cy="60" r="52" data-val="98"/><text class="gauge__num" x="60" y="69" text-anchor="middle">98</text></svg><span>Speed</span></div>
+          <div class="gauge"><svg viewBox="0 0 120 120" role="img" aria-label="Accessibility 100"><circle class="gauge__track" cx="60" cy="60" r="52"/><circle class="gauge__val" cx="60" cy="60" r="52" data-val="100"/><text class="gauge__num" x="60" y="69" text-anchor="middle">100</text></svg><span>Accessibility</span></div>
+          <div class="gauge"><svg viewBox="0 0 120 120" role="img" aria-label="Best practices 100"><circle class="gauge__track" cx="60" cy="60" r="52"/><circle class="gauge__val" cx="60" cy="60" r="52" data-val="100"/><text class="gauge__num" x="60" y="69" text-anchor="middle">100</text></svg><span>Best practices</span></div>
+          <div class="gauge"><svg viewBox="0 0 120 120" role="img" aria-label="SEO 100"><circle class="gauge__track" cx="60" cy="60" r="52"/><circle class="gauge__val" cx="60" cy="60" r="52" data-val="100"/><text class="gauge__num" x="60" y="69" text-anchor="middle">100</text></svg><span>SEO</span></div>
+        </div>
+        <div class="vitals">
+          <div class="vital"><b>Under 2 seconds</b><span>to load on a phone</span></div>
+          <div class="vital"><b>Every screen</b><span>phone, tablet, desktop</span></div>
+          <div class="vital"><b>Search ready</b><span>structure Google can read</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="sec process" id="process" aria-labelledby="procTitle" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec__head">
+        <span class="eyebrow">How we'll work</span>
+        <h2 class="sec__title" id="procTitle">Four steps from <em>idea to launch</em>.</h2>
+      </div>
+      <div class="process__track" id="procTrack">
+        <article class="step glass"><span class="step__n" aria-hidden="true">01</span><span class="mono">Week 1</span><h3>Talk</h3><p>We go through your business, your customers and what the site needs to do. You get a clear scope, timeline and fixed price.</p></article>
+        <article class="step glass"><span class="step__n" aria-hidden="true">02</span><span class="mono">Weeks 2–3</span><h3>Design</h3><p>Your pages take shape on a private preview link. You review on your own phone and laptop and ask for changes.</p></article>
+        <article class="step glass"><span class="step__n" aria-hidden="true">03</span><span class="mono">Weeks 3–5</span><h3>Build &amp; test</h3><p>Every page, form and booking flow is built and tested on real devices, for speed and for search.</p></article>
+        <article class="step glass"><span class="step__n" aria-hidden="true">04</span><span class="mono">Week 6 →</span><h3>Launch &amp; support</h3><p>We go live, I show your team how to update content, and I keep the site healthy afterwards.</p></article>
+      </div>
+      <div class="process__bar" aria-hidden="true"><i id="procBar"></i></div>
+    </div>
+  </section>
+
+  <section class="contact wrap" id="contact" aria-labelledby="contactTitle">
+    <div class="contact__grid">
+      <div class="contact__lead">
+        <h2 class="contact__big" id="contactTitle"><span>Let's build</span><span class="outline">your next</span><span class="grad">website</span></h2>
+        <p>Tell me about your business and what you need. I reply within one business day.</p>
+        <div class="contact__mail"><span>Or email</span><b id="emailText">kurtzek3@gmail.com</b><button class="copy" type="button" id="copyEmail">Copy</button></div>
+      </div>
+      <div class="form-panel glass">
+        <h3>Start a project</h3>
+        <form id="contactForm" novalidate>
+          <div class="field">
+            <span class="lbl" id="needLabel">I need</span>
+            <div class="chips" role="group" aria-labelledby="needLabel">
+              <label class="chip"><input type="checkbox" id="need-site" name="need" value="New website" checked><span>New website</span></label>
+              <label class="chip"><input type="checkbox" id="need-redesign" name="need" value="Redesign"><span>Redesign</span></label>
+              <label class="chip"><input type="checkbox" id="need-booking" name="need" value="Bookings or listings"><span>Bookings or listings</span></label>
+              <label class="chip"><input type="checkbox" id="need-speed" name="need" value="Speed fix"><span>Speed fix</span></label>
+              <label class="chip"><input type="checkbox" id="need-care" name="need" value="Ongoing support"><span>Ongoing support</span></label>
+            </div>
+          </div>
+          <div class="row2">
+            <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" placeholder="Jane Cooper" required><span class="err" id="e-name"></span></div>
+            <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" placeholder="jane@company.com" required><span class="err" id="e-email"></span></div>
+          </div>
+          <div class="row2">
+            <div class="field"><label for="f-company">Business</label><input id="f-company" name="company" autocomplete="organization" placeholder="Company or website"></div>
+            <div class="field">
+              <label for="f-budget">Budget</label>
+              <select id="f-budget" name="budget">
+                <option>Under $3k</option><option selected>$3k – $8k</option><option>$8k – $15k</option><option>$15k+</option><option>Not sure yet</option>
+              </select>
+            </div>
+          </div>
+          <div class="field"><label for="f-msg">About the project</label><textarea id="f-msg" name="message" placeholder="What does your business do, what should the site help with, and when do you need it?"></textarea></div>
+          <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center">
+            <button class="btn btn--solid magnetic" type="submit">Send enquiry
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <p class="form__status" id="formStatus" role="status"></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Kurt Zeke Magay · Website Developer</span>
+    <span class="mono">Manila, GMT+8</span>
+    <a class="totop" href="#top">Back to top <span class="totop__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg></span></a>
+  </div>
+</footer>
+
+<div class="preview" id="preview" aria-hidden="true">
+  <div class="preview__win glass">
+    <div class="preview__bar"><i></i><i></i><i></i></div>
+    <div class="preview__body">
+      <div class="preview__hero" id="previewHero"></div>
+      <div class="preview__l" style="width:70%"></div>
+      <div class="preview__l" style="width:45%"></div>
+      <div class="preview__cards"><span></span><span></span><span></span></div>
+    </div>
+    <span class="preview__label" id="previewLabel">Robotics</span>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
