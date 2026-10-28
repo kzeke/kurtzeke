@@ -233,46 +233,36 @@
   </section>
 
   <section class="contact wrap" id="contact" aria-labelledby="contactTitle">
-    <div class="contact__grid">
-      <div class="contact__lead">
-        <h2 class="contact__big" id="contactTitle"><span>Let's build</span><span class="outline">your next</span><span class="grad">website</span></h2>
-        <p>Tell me about your business and what you need. I reply within one business day.</p>
-        <div class="contact__mail"><span>Or email</span><b id="emailText">kurtzek3@gmail.com</b><button class="copy" type="button" id="copyEmail">Copy</button></div>
+    <div class="contact__head">
+      <span class="eyebrow">Contact</span>
+      <h2 class="contact__big" id="contactTitle"><span>Let's build</span><span class="outline">your next</span><span class="grad">website</span></h2>
+    </div>
+    <div class="contact__layout">
+      <div class="mail glass">
+        <p class="mail__lead">Tell me about your business and what you need. I'll reply with questions or a rough quote.</p>
+        <div class="mail__body">
+          <a class="mail__link" href="mailto:hello@kurtzeke.com?subject=New%20website%20project"><span class="mail__text" id="emailText">hello@kurtzeke.com</span><svg class="mail__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+        </div>
+        <div class="mail__actions">
+          <button class="copy" type="button" id="copyEmail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="copy__label">Copy email</span></button>
+          <span class="mail__hint">or click the address to open your email app</span>
+        </div>
+        <div class="mail__brief">
+          <span class="eyebrow">Helpful to include</span>
+          <ul>
+            <li class="tag">What your business does</li>
+            <li class="tag">Pages or features you need</li>
+            <li class="tag">Your current website, if any</li>
+            <li class="tag">Deadline</li>
+            <li class="tag">Budget range</li>
+          </ul>
+        </div>
       </div>
-      <div class="form-panel glass">
-        <h3>Start a project</h3>
-        <form id="contactForm" novalidate>
-          <div class="field">
-            <span class="lbl" id="needLabel">I need</span>
-            <div class="chips" role="group" aria-labelledby="needLabel">
-              <label class="chip"><input type="checkbox" id="need-site" name="need" value="New website" checked><span>New website</span></label>
-              <label class="chip"><input type="checkbox" id="need-redesign" name="need" value="Redesign"><span>Redesign</span></label>
-              <label class="chip"><input type="checkbox" id="need-booking" name="need" value="Bookings or listings"><span>Bookings or listings</span></label>
-              <label class="chip"><input type="checkbox" id="need-speed" name="need" value="Speed fix"><span>Speed fix</span></label>
-              <label class="chip"><input type="checkbox" id="need-care" name="need" value="Ongoing support"><span>Ongoing support</span></label>
-            </div>
-          </div>
-          <div class="row2">
-            <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" autocomplete="name" placeholder="Jane Cooper" required><span class="err" id="e-name"></span></div>
-            <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" placeholder="jane@company.com" required><span class="err" id="e-email"></span></div>
-          </div>
-          <div class="row2">
-            <div class="field"><label for="f-company">Business</label><input id="f-company" name="company" autocomplete="organization" placeholder="Company or website"></div>
-            <div class="field">
-              <label for="f-budget">Budget</label>
-              <select id="f-budget" name="budget">
-                <option>₱ · Starter</option><option selected>₱₱ · Standard</option><option>₱₱₱ · Premium</option><option>₱₱₱₱ · Custom build</option><option>Not sure yet</option>
-              </select>
-            </div>
-          </div>
-          <div class="field"><label for="f-msg">About the project</label><textarea id="f-msg" name="message" placeholder="What does your business do, what should the site help with, and when do you need it?"></textarea></div>
-          <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center">
-            <button class="btn btn--solid magnetic" type="submit">Send enquiry
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-            <p class="form__status" id="formStatus" role="status"></p>
-          </div>
-        </form>
-      </div>
+      <ul class="cfacts" style="list-style:none;margin:0;padding:0">
+        <li class="cfact glass"><span class="cfact__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><b>Replies within 1 business day</b><span>Usually much sooner</span></div></li>
+        <li class="cfact glass"><span class="cfact__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span><div><b>Manila, Philippines</b><span>Working with clients in the US, UK and Australia</span></div></li>
+        <li class="cfact glass"><span class="cfact__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></span><div><b>Open for new projects</b><span>New sites, redesigns and ongoing support</span></div></li>
+      </ul>
     </div>
   </section>
 </main>

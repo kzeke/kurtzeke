@@ -9,8 +9,9 @@
   /* ---------- copy email ---------- */
   const copyBtn = document.getElementById('copyEmail'), emailText = document.getElementById('emailText');
   copyBtn.addEventListener('click', () => {
-    const done = () => { copyBtn.textContent = 'Copied'; setTimeout(() => copyBtn.textContent = 'Copy', 1800); };
-    const fallback = () => { const r = document.createRange(); r.selectNodeContents(emailText); const s = getSelection(); s.removeAllRanges(); s.addRange(r); copyBtn.textContent = 'Selected, press Ctrl+C'; setTimeout(() => copyBtn.textContent = 'Copy', 2400); };
+    const lbl = copyBtn.querySelector('.copy__label'), say = (m, ms) => { lbl.textContent = m; clearTimeout(copyBtn._t); copyBtn._t = setTimeout(() => lbl.textContent = 'Copy email', ms); };
+    const done = () => say('Copied', 1800);
+    const fallback = () => { const r = document.createRange(); r.selectNodeContents(emailText); const s = getSelection(); s.removeAllRanges(); s.addRange(r); say('Selected, press Ctrl+C', 2400); };
     try { navigator.clipboard.writeText(emailText.textContent).then(done, fallback); } catch (e) { fallback(); }
   });
 
@@ -142,13 +143,16 @@ void main(){
     drawField(t); drawDust();
     const speed = Math.min(Math.hypot(mouse.vx, mouse.vy), 80);
     const tgt = hoverTitle ? Math.min(4 + speed * .35, 26) : 0;
-    tScale += (tgt - tScale) * .12;
-    titleMap.setAttribute('scale', tScale.toFixed(2));
-    titleNoise.setAttribute('baseFrequency', `0.004 ${(0.05 + Math.sin(t * .002) * .02).toFixed(4)}`);
-    if (!hoverTitle && tScale < .2 && heroTitle.style.filter) heroTitle.style.filter = '';
-    wScale += ((previewOn ? Math.min(3 + speed * .35, 24) : 0) - wScale) * .14;
-    warpMap.setAttribute('scale', wScale.toFixed(2));
-    warpNoise.setAttribute('baseFrequency', `0.012 ${(0.03 + Math.sin(t * .003) * .01).toFixed(4)}`);
+    if (hoverTitle || tScale > .05) {
+      tScale += (tgt - tScale) * .12;
+      titleMap.setAttribute('scale', tScale.toFixed(2));
+      titleNoise.setAttribute('baseFrequency', `0.004 ${(0.05 + Math.sin(t * .002) * .02).toFixed(4)}`);
+    } else if (heroTitle.style.filter) { tScale = 0; titleMap.setAttribute('scale', '0'); heroTitle.style.filter = ''; }
+    if (previewOn || wScale > .05) {
+      wScale += ((previewOn ? Math.min(3 + speed * .35, 24) : 0) - wScale) * .14;
+      warpMap.setAttribute('scale', wScale.toFixed(2));
+      warpNoise.setAttribute('baseFrequency', `0.012 ${(0.03 + Math.sin(t * .003) * .01).toFixed(4)}`);
+    }
     mouse.vx *= .85; mouse.vy *= .85;
     requestAnimationFrame(loop);
   }
@@ -248,7 +252,7 @@ void main(){
   /* ---------- cursor + preview state: read from what is actually under the pointer ---------- */
   if (fine) {
     const label = cur.querySelector('.cursor__label');
-    const INTERACTIVE = 'a,button,.chip,input,textarea,select,label';
+    const INTERACTIVE = 'a,button';
     let row = null, inter = false, inside = false, queued = false;
     const showPreview = r => {
       const [a, b] = r.dataset.hue.split(',');
@@ -308,20 +312,6 @@ void main(){
   };
   wrapWords(man);
 
-  /* ---------- form ---------- */
-  const form = document.getElementById('contactForm');
-  form.addEventListener('submit', e => {
-    e.preventDefault();
-    const name = form.elements.name, email = form.elements.email;
-    const nameOk = !!name.value.trim(), emailOk = /^\S+@\S+\.\S+$/.test(email.value);
-    document.getElementById('e-name').textContent = nameOk ? '' : 'Add your name so I know who to reply to.';
-    document.getElementById('e-email').textContent = emailOk ? '' : 'Enter an email like jane@company.com.';
-    name.setAttribute('aria-invalid', String(!nameOk)); email.setAttribute('aria-invalid', String(!emailOk));
-    const status = document.getElementById('formStatus');
-    if (!nameOk || !emailOk) { status.textContent = ''; (nameOk ? email : name).focus(); return; }
-    status.textContent = `Thanks, ${name.value.trim().split(' ')[0]}. Your enquiry is ready to send.`;
-    form.reset(); document.getElementById('need-site').checked = true;
-  });
 
   /* ---------- smooth in-page scrolling ---------- */
   let scrollAnim = 0;
@@ -373,7 +363,7 @@ void main(){
 
   gsap.to('.manifesto .w', { opacity: 1, stagger: .08, ease: 'none', scrollTrigger: { trigger: man, start: 'top 80%', end: 'bottom 45%', scrub: true } });
 
-  gsap.utils.toArray('.sec__head, .perf__copy, .perf__panel, .contact__lead p, .contact__mail, .form-panel').forEach(el => {
+  gsap.utils.toArray('.sec__head, .perf__copy, .perf__panel, .mail, .cfacts').forEach(el => {
     gsap.from(el, { y: 50, opacity: 0, duration: 1.1, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 88%', once: true } });
   });
   gsap.from('.about-grid > *', { y: 60, opacity: 0, duration: 1.1, stagger: .1, ease: 'expo.out', scrollTrigger: { trigger: '.about-grid', start: 'top 85%', once: true } });
